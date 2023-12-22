@@ -32,8 +32,8 @@ const Listings = ({jobs}: any) => {
                 <div className='company-listing'>
                     <div className='top-section'>
                       <p className='company'>{job.company}</p>
-                      {job.new && <StatusTag>New!</StatusTag>}
-                      {job.featured && <StatusTag>Featured</StatusTag>}
+                      {job.new && <StatusTag>NEW!</StatusTag>}
+                      {job.featured && <StatusTag>FEATURED</StatusTag>}
                     </div>
                     <p className='position'>{job.position}</p>
                     <p className='description'>{job.postedAt} # {job.contract} # {job.location}</p>
