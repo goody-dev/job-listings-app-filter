@@ -1,4 +1,3 @@
-import React from 'react';
 import CategoryTag from '../Utilities/CategoryTag';
 import StatusTag from '../Utilities/StatusTag';
 
