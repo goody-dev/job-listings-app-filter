@@ -23,9 +23,10 @@ const Listings = ({jobs}: any) => {
     <div className='listings'>
       {jobs.map((job: job) => {
         const categories = [job.role, job.level, ...job.tools];
+        const highlight = job.new && job.featured;
 
         return(
-        <div key={job.id} className='filter-tablet'>
+        <div key={job.id} className={(highlight && 'highlight') + ' filter-tablet'}>
             <div className='job-info'>
                 <img className='company-logo' src={job.logo} />
                 <div className='company-listing'>
