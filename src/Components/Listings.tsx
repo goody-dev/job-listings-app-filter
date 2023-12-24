@@ -1,32 +1,35 @@
 import CategoryTag from '../Utilities/CategoryTag';
 import StatusTag from '../Utilities/StatusTag';
 
-type job = {
-    id: string,
-    company: string,
-    logo: string,
-    new: boolean,
-    featured: boolean,
-    position: string,
-    role: string,
-    level: string,
-    postedAt: string,
-    contract: string,
-    location: string,
-    languages: string[],
-    tools: string[]
+interface Job {
+    id: number;
+    company: string;
+    logo: string;
+    new: boolean;
+    featured: boolean;
+    position: string;
+    role: string;
+    level: string;
+    postedAt: string;
+    contract: string;
+    location: string;
+    languages: string[];
+    tools: string[];
 }
 
-const Listings = ({jobs}: any) => {
+interface Props {
+  jobs: Job[];
+}
 
+const Listings: React.FC<Props> = ({jobs}) => {
   return (
     <div className='listings'>
-      {jobs.map((job: job) => {
+      {jobs.map((job, index) => {
         const categories = [job.role, job.level, ...job.tools];
         const highlight = job.new && job.featured;
 
         return(
-        <div key={job.id} className={(highlight && 'highlight') + ' filter-tablet'}>
+        <div key={index} className={(highlight && 'highlight') + ' filter-tablet'}>
             <div className='job-info'>
                 <img className='company-logo' src={job.logo} />
                 <div className='company-listing'>
@@ -50,4 +53,4 @@ const Listings = ({jobs}: any) => {
   )
 }
 
-export default Listings
+export default Listings;
