@@ -25,7 +25,7 @@ const Listings: React.FC<Props> = ({jobs}) => {
   return (
     <div className='listings'>
       {jobs.map((job, index) => {
-        const categories = [job.role, job.level, ...job.tools];
+        const jobCategories = [job.role, job.level, ...job.tools];
         const highlight = job.new && job.featured;
 
         return(
@@ -43,8 +43,8 @@ const Listings: React.FC<Props> = ({jobs}) => {
                 </div>
             </div>
             <hr className='info-div'></hr>
-            <div className='categories'>
-              {categories.map((tool, id) => <CategoryTag key={id}>{tool}</CategoryTag>)}
+            <div className='job-categories'>
+              {jobCategories.map((tool, id) => <CategoryTag key={id}>{tool}</CategoryTag>)}
             </div>
         </div>)
         }

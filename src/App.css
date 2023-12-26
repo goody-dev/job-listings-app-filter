@@ -28,7 +28,7 @@ body {
     min-height: 20%;
   }
 }
-.cartegories-tab {
+.categories-tab {
   background-color: white;
   width:80vw;
   display: flex;
@@ -43,7 +43,7 @@ body {
   top: 130px;
   box-shadow: 0px 0px 6px 0px hsla(180, 29%, 50%, 0.5);
 
-  .tab-cartegories-div {
+  .tab-categories-div {
     display: flex;
     gap:15px;
     flex-wrap: wrap;
@@ -60,7 +60,7 @@ body {
   }
 }
 
-.cartegory-tab {
+.category-tab {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -81,6 +81,7 @@ body {
     justify-content: center;
     padding: 5px;
     border-radius:  0 2px 2px 0;
+    border: none;
   }
   .tab-cancel-div:hover {
     background-color: var(--Very-Dark-Grayish-Cyan);
@@ -164,7 +165,7 @@ body {
   color: var(--Dark-Grayish-Cyan);
   margin: 0px;
 }
-.categories {
+.job-categories {
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
@@ -194,7 +195,7 @@ border-radius: 3px;
       min-height: 20%;
     }
   }
-  .cartegories-tab {
+  .categories-tab {
     max-width: 785px;
   }
   .listings {
@@ -234,7 +235,7 @@ border-radius: 3px;
     .info-div {
       display: none;
     }
-    .categories {
+    .job-categories {
       width: 50%;
       justify-content: end;
     }
