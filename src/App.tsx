@@ -25,31 +25,53 @@ interface Categories {
 
 function App() {
   const [categories, setCategories] = useState<Categories>({
-    HTML:true, 
-    CSS:true, 
-    JavaScript:true,
-    Frontend: true,
-    Senior: false,
-    Fullstack: false,
-    Midweight:true,
-    Python:true,
-    React:true,
+    HTML:false, 
+    CSS:false, 
+    JavaScript:false,
+    Frontend: false,
+    Senior:false,
+    Fullstack:false,
+    Midweight:false,
+    Python:false,
+    React:false,
     Junior:false,
-    Sass:true,
+    Sass:false,
     Ruby:false,
-    Backend:true,
-    RoR:true,
+    Backend:false,
+    RoR:false,
     Vue:false,
-    Django:true
+    Django:false
   })
 
+  //type selectedCategories = string[];
   const selectedCategories = () => {
     const selectedCategories: string[] = [];
-    Object.entries(categories).map(([cart, value])=> value===true && selectedCategories.push(cart));
+    Object.entries(categories).map(([cart, value])=> value===true && selectedCategories.push(`${cart}`));
     //alert(selectedCategories);
     return selectedCategories;
   }
 
+  const handleSelectCategory = (category:string) => {
+    Object.entries(categories).map(([cart, value])=> {
+      (`${cart}` === category && category === "HTML")? setCategories({...categories, HTML:true}):
+      (`${cart}` === category && category === "CSS")? setCategories({...categories, CSS:true}):
+      (`${cart}` === category && category === "JavaScript")? setCategories({...categories, JavaScript:true}):
+      (`${cart}` === category && category === "Senior")? setCategories({...categories, Senior:true}):
+      (`${cart}` === category && category === "Frontend")? setCategories({...categories, Frontend:true}):
+      (`${cart}` === category && category === "Fullstack")? setCategories({...categories, Fullstack:true}):
+      (`${cart}` === category && category === "Midweight")? setCategories({...categories, Midweight:true}):
+      (`${cart}` === category && category === "Python")? setCategories({...categories, Python:true}):
+      (`${cart}` === category && category === "React")? setCategories({...categories, React:true}):
+      (`${cart}` === category && category === "Junior")? setCategories({...categories, Junior:true}):
+      (`${cart}` === category && category === "Sass")? setCategories({...categories, Sass:true}):
+      (`${cart}` === category && category === "Ruby")? setCategories({...categories, Ruby:true}):
+      (`${cart}` === category && category === "Backend")? setCategories({...categories, Backend:true}):
+      (`${cart}` === category && category === "RoR")? setCategories({...categories, RoR:true}):
+      (`${cart}` === category && category === "Vue")? setCategories({...categories, Vue:true}):
+      (`${cart}` === category && category === "Django")? setCategories({...categories, Django:true}):
+      null
+    })
+  }
   const handleUnselectCategory = (category:string) => {
     Object.entries(categories).map(([cart, value])=> {
       (`${cart}` === category && category === "HTML")? setCategories({...categories, HTML:false}):
@@ -72,6 +94,12 @@ function App() {
     })
   }
 
+  const handleClearCategory = () => {
+    Object.entries(categories).map(([cart])=>{
+      setCategories({...categories, HTML:false, CSS:false, JavaScript:false,Senior:false, Frontend:false, Fullstack:false, RoR:false, Vue:false, Django:false, Backend:false, Midweight:false, Python:false, React:false, Junior:false, Sass:false, Ruby:false})
+    })
+  } 
+
   useEffect (()=> {
     selectedCategories()
   }, [categories])
@@ -80,8 +108,8 @@ function App() {
     <div>
       <div className='header'>
       </div>
-      <CategoriesTab categories={selectedCategories()} unselectCategories={(category:any)=>handleUnselectCategory(category)}/>
-      <Listings jobs={jobListings} />
+      {selectedCategories()[0] && <CategoriesTab categories={selectedCategories()} unselectCategories={(category:any)=>handleUnselectCategory(category)} clearCategories={handleClearCategory}/>}
+      <Listings jobs={jobListings} handleSelectCategory={handleSelectCategory} selectedCategories={selectedCategories()} />
     </div>
   );
 };

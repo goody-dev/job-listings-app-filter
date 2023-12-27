@@ -1,8 +1,9 @@
-const CategoryTag = ({children}: any) => {
+const CategoryTag = ({children, category, selectCategory}: any) => {
+  
   return (
-    <div className='category-tag'>
+    <button onClick={()=>selectCategory(category)} className='category-tag'>
       {children}
-    </div>
+    </button>
   )
 }
 

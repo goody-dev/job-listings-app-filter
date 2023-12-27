@@ -19,16 +19,31 @@ interface Job {
 
 interface Props {
   jobs: Job[];
+  selectedCategories: string[];
+  handleSelectCategory: any;
 }
 
-const Listings: React.FC<Props> = ({jobs}) => {
+const Listings: React.FC<Props> = ({jobs, selectedCategories, handleSelectCategory}) => {
+  
   return (
     <div className='listings'>
       {jobs.map((job, index) => {
         const jobCategories = [job.role, job.level, ...job.tools];
         const highlight = job.new && job.featured;
+        const match = () => {
+          if(!selectedCategories[0]){
+            return true;
+          } else {
+            return selectedCategories.every((category)=>{
+              return jobCategories.includes(category);
+            })
+          }
+        }
+        const matched = match();
 
-        return(
+        
+        if(matched) {
+          return(
         <div key={index} className={(highlight && 'highlight') + ' filter-tablet'}>
             <div className='job-info'>
                 <img className='company-logo' src={job.logo} />
@@ -44,9 +59,9 @@ const Listings: React.FC<Props> = ({jobs}) => {
             </div>
             <hr className='info-div'></hr>
             <div className='job-categories'>
-              {jobCategories.map((tool, id) => <CategoryTag key={id}>{tool}</CategoryTag>)}
+              {jobCategories.map((category, id) => <CategoryTag key={id} category={category} selectCategory={handleSelectCategory}>{category}</CategoryTag>)}
             </div>
-        </div>)
+        </div>)}
         }
       )}
     </div>

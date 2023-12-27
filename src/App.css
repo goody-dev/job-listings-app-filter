@@ -178,8 +178,14 @@ gap: 12px;
 color: var(--Desaturated-Dark-Cyan);
 background-color: var(--Light-Grayish-Cyan-Background);
 padding: 6px;
+border: 0;
 border-radius: 3px;
 }
+.category-tag:hover {
+  color: var(--Light-Grayish-Cyan-Background);
+  background-color: var(--Desaturated-Dark-Cyan);
+  cursor: pointer;
+  }
 
 @media screen and (min-width: 585px) {
   .header {
