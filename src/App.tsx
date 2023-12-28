@@ -27,7 +27,7 @@ function App() {
   const [categories, setCategories] = useState<Categories>({
     HTML:false, 
     CSS:false, 
-    JavaScript:true,
+    JavaScript:false,
     Frontend: false,
     Senior:false,
     Fullstack:false,
