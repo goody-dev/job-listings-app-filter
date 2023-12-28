@@ -52,7 +52,7 @@ function App() {
   }
 
   const handleSelectCategory = (category:string) => {
-    Object.entries(categories).map(([cart, value])=> {
+    Object.entries(categories).map(([cart])=> {
       (`${cart}` === category && category === "HTML")? setCategories({...categories, HTML:true}):
       (`${cart}` === category && category === "CSS")? setCategories({...categories, CSS:true}):
       (`${cart}` === category && category === "JavaScript")? setCategories({...categories, JavaScript:true}):
@@ -73,7 +73,7 @@ function App() {
     })
   }
   const handleUnselectCategory = (category:string) => {
-    Object.entries(categories).map(([cart, value])=> {
+    Object.entries(categories).map(([cart])=> {
       (`${cart}` === category && category === "HTML")? setCategories({...categories, HTML:false}):
       (`${cart}` === category && category === "CSS")? setCategories({...categories, CSS:false}):
       (`${cart}` === category && category === "JavaScript")? setCategories({...categories, JavaScript:false}):
