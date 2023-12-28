@@ -95,7 +95,7 @@ function App() {
   }
 
   const handleClearCategory = () => {
-    Object.entries(categories).map(([cart])=>{
+    Object.entries(categories).map(()=>{
       setCategories({...categories, HTML:false, CSS:false, JavaScript:false,Senior:false, Frontend:false, Fullstack:false, RoR:false, Vue:false, Django:false, Backend:false, Midweight:false, Python:false, React:false, Junior:false, Sass:false, Ruby:false})
     })
   } 
