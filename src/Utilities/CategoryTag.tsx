@@ -1,7 +1,9 @@
 const CategoryTag = ({children, category, selectCategory}: any) => {
-  
+  const handleClick = () => {
+    selectCategory(category);  
+  }
   return (
-    <button onClick={()=>selectCategory(category)} className='category-tag'>
+    <button onClick={()=>handleClick()} className='category-tag'>
       {children}
     </button>
   )

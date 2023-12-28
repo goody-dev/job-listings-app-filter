@@ -40,7 +40,7 @@ const Listings: React.FC<Props> = ({jobs, selectedCategories, handleSelectCatego
           }
         }
         const matched = match();
-
+        
         
         if(matched) {
           return(
@@ -54,7 +54,7 @@ const Listings: React.FC<Props> = ({jobs, selectedCategories, handleSelectCatego
                       {job.featured && <StatusTag>FEATURED</StatusTag>}
                     </div>
                     <p className='position'>{job.position}</p>
-                    <p className='description'>{job.postedAt} # {job.contract} # {job.location}</p>
+                    <p className='description'>{job.postedAt} * {job.contract} * {job.location}</p>
                 </div>
             </div>
             <hr className='info-div'></hr>

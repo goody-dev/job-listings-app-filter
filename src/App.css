@@ -185,7 +185,7 @@ border-radius: 3px;
   color: var(--Light-Grayish-Cyan-Background);
   background-color: var(--Desaturated-Dark-Cyan);
   cursor: pointer;
-  }
+}
 
 @media screen and (min-width: 585px) {
   .header {
