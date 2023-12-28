@@ -20,7 +20,7 @@ interface Job {
 interface Props {
   jobs: Job[];
   selectedCategories: string[];
-  handleSelectCategory: any;
+  handleSelectCategory:(category:string)=>void;
 }
 
 const Listings: React.FC<Props> = ({jobs, selectedCategories, handleSelectCategory}) => {

@@ -1,4 +1,9 @@
-const CategoryTag = ({children, category, selectCategory}: any) => {
+interface Props {
+  children:string;
+  category: string;
+  selectCategory: (category:string)=>void;
+}
+const CategoryTag:React.FC<Props> = ({children, category, selectCategory}) => {
   const handleClick = () => {
     selectCategory(category);  
   }

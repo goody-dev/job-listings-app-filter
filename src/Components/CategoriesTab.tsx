@@ -1,11 +1,11 @@
 import CategoryTab from "../Utilities/CategoryTab";
 
-interface CategoriesTabComponent {
+interface Props {
   categories: string[];
-  unselectCategories: any;
-  clearCategories: any;
+  unselectCategories: (category?:string)=>void;
+  clearCategories: ()=>void;
 }
-const CategoriesTab:React.FC<CategoriesTabComponent> = ({categories, unselectCategories, clearCategories}) => {
+const CategoriesTab:React.FC<Props> = ({categories, unselectCategories, clearCategories}) => {
   return (
     <div className='categories-tab'>
       <div className="tab-categories-div">

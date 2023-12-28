@@ -1,4 +1,9 @@
-const CategoryTab = ({category, unselectCategories}:any) => {
+interface Props {
+  category:string;
+  unselectCategories:(category:string)=>void;
+}
+
+const CategoryTab:React.FC<Props> = ({category, unselectCategories}) => {
   const handleClick = (category:string) => {
     unselectCategories(category);
   }
